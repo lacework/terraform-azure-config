@@ -44,8 +44,9 @@ variable "password_length" {
 }
 
 variable "lacework_integration_name" {
-  type    = string
-  default = "TF config"
+  type        = string
+  default     = "TF config"
+  description = "The Lacework integration name"
 }
 
 variable "wait_time" {
