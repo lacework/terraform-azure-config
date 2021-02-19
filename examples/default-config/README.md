@@ -19,8 +19,8 @@ provider "azurerm" {
 provider "lacework" {}
 
 module "az_config" {
-  source                      = "lacework/config/azure"
-  version                     = "~> 0.1.2"
+  source  = "lacework/config/azure"
+  version = "~> 0.1.2"
 }
 ```
 
