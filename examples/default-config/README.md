@@ -1,5 +1,8 @@
 # Default Integration of Azure with Lacework for Configuration Assessment
+
 The following example shows a default integration of an Azure Tenant and the default subscription with Lacework for configuration assessment.
+
+## Sample Code
 
 ```hcl
 terraform {
@@ -20,7 +23,7 @@ provider "lacework" {}
 
 module "az_config" {
   source  = "lacework/config/azure"
-  version = "~> 0.1.2"
+  version = "~> 0.1"
 }
 ```
 

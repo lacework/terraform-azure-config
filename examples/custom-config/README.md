@@ -1,5 +1,9 @@
 # Customized Integration of Azure with Lacework for Configuration Assessment
+
 The following example shows how to integrate an Azure Tenant and select subscriptions with Lacework for configuration assessment.
+
+## Sample Code
+
 ```hcl
 terraform {
   required_providers {
@@ -19,7 +23,7 @@ provider "lacework" {}
 
 module "az_config" {
   source                      = "lacework/config/azure"
-  version                     = "~> 0.1.2"
+  version                     = "~> 0.1"
   application_name            = "lacework_custom_ad_application_name"
   application_identifier_uris = ["https://account.lacework.net"]
   subscription_ids            = ["subscription-id-1", "subscription-id-2", "subscription-id-3"]
