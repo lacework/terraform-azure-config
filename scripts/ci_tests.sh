@@ -9,8 +9,9 @@ set -eou pipefail
 readonly project_name=terraform-azure-config
 
 TEST_CASES=(
-  examples/custom-config/
-  examples/default-config/
+  examples/custom-config
+  examples/default-config
+  examples/management-group
 )
 
 log() {
