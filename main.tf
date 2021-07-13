@@ -14,6 +14,8 @@ module "az_cfg_ad_application" {
   key_vault_ids               = var.key_vault_ids
   tenant_id                   = var.tenant_id
   password_length             = var.password_length
+  use_management_group        = var.use_management_group
+  management_group_id         = var.management_group_id
 }
 
 # wait for X seconds for the Azure resources to be created

@@ -72,3 +72,15 @@ variable "application_password" {
   default     = ""
   description = "The Active Directory Application password to use (required when use_existing_ad_application is set to true)"
 }
+
+variable "use_management_group" {
+  type        = bool
+  default     = false
+  description = "If set to `true`, the AD Application will be set up to leverage a Management Group"
+}
+
+variable "management_group_id" {
+  type        = string
+  default     = ""
+  description = "The ID of the Management Group"
+}
