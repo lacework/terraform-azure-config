@@ -3,7 +3,7 @@ terraform {
 
   required_providers {
     azuread = "~> 1.2"
-    azurerm = "~> 2.26"
+    azurerm = "~> 2.28"
     lacework = {
       source  = "lacework/lacework"
       version = "~> 0.3"
