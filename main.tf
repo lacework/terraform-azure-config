@@ -1,4 +1,5 @@
 locals {
+  tenant_id = length(var.tenant_id) > 0 ? var.tenant_id : data.azurerm_subscription.primary.tenant_id
   application_id       = var.use_existing_ad_application ? var.application_id : module.az_cfg_ad_application.application_id
   application_password = var.use_existing_ad_application ? var.application_password : module.az_cfg_ad_application.application_password
   subscription_ids = var.all_subscriptions ? (
@@ -8,6 +9,7 @@ locals {
     // or, if the user wants to grant a list of subscriptions, if none then we default to the primary subscription
     length(var.subscription_ids) > 0 ? var.subscription_ids : [data.azurerm_subscription.primary.subscription_id]
   )
+  service_principal_id = var.use_existing_ad_application ? var.service_principal_id : module.az_cfg_ad_application.service_principal_id
 }
 
 module "az_cfg_ad_application" {
@@ -25,10 +27,10 @@ module "az_cfg_ad_application" {
   management_group_id         = var.management_group_id
 }
 
-
+data "azurerm_subscription" "primary" {}
 data "azurerm_subscriptions" "available" {}
 resource "azurerm_role_assignment" "grant_reader_role_to_subscriptions" {
-  count = var.create ? length(local.subscription_ids) : 0
+  count = length(local.subscription_ids)
   scope = "/subscriptions/${local.subscription_ids[count.index]}"
 
   principal_id         = local.service_principal_id
@@ -53,7 +55,7 @@ resource "azurerm_role_assignment" "keyvaultrbac" {
   role_definition_name = "Key Vault Reader"
 }
 resource "azurerm_key_vault_access_policy" "default" {
-  count        = var.create ? length(var.key_vault_ids) : 0
+  count        = length(var.key_vault_ids) 
   key_vault_id = var.key_vault_ids[count.index]
   object_id    = local.service_principal_id
   tenant_id    = local.tenant_id

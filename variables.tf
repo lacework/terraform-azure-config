@@ -60,6 +60,11 @@ variable "use_existing_ad_application" {
   default     = false
   description = "Set this to true to use an existing Active Directory Application"
 }
+variable "service_principal_id" {
+  type        = string
+  default     = ""
+  description = "The Service Principal id to use. Required when `use_existing_ad_application` is set to `true`"
+}
 
 variable "application_id" {
   type        = string
