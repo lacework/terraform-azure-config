@@ -57,7 +57,7 @@ variable "wait_time" {
 
 variable "use_existing_ad_application" {
   type        = bool
-  default     = true
+  default     = false
   description = "Set this to true to use an existing Active Directory Application"
 }
 variable "service_principal_id" {
