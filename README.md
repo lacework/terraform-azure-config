@@ -7,22 +7,24 @@
 
 Terraform module for integrating Azure Subscriptions and Tenants with Lacework for cloud resource configuration assessment.
 
+It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", then talks to Lacework API to configure a Cloud Config Integration
+
 ## Inputs
 
 | Name                        | Description                                                                                                      | Type           | Default                     | Required |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------- | :------: |
 | all_subscriptions           | If set to true, grant read access to ALL subscriptions within the selected Tenant (overrides 'subscription_ids') | `bool`         | `false`                     |    no    |
 | application_id              | The Active Directory Application id to use (required when use_existing_ad_application is set to true)            | `string`       | `""`                        |    no    |
-| application_identifier_uris | A list of user-defined URI(s) for the Lacework AD Application                                                    | `list(string)` | `[]`                        |    no    |
-| application_name            | The name of the Azure Active Directory Applicaiton                                                               | `string`       | `"lacework_security_audit"` |    no    |
+| application_identifier_uris | [DEPRECATED] A list of user-defined URI(s) for the Lacework AD Application                                                    | `list(string)` | `[]`                        |    no    |
+| application_name            | [DEPRECATED] The name of the Azure Active Directory Applicaiton                                                               | `string`       | `"lacework_security_audit"` |    no    |
 | application_password        | The Active Directory Application password to use (required when use_existing_ad_application is set to true)      | `string`       | `""`                        |    no    |
 | key_vault_ids               | A list of Key Vault Ids used in your subscription for the Lacework AD App to have access to                      | `list(string)` | `[]`                        |    no    |
 | lacework_integration_name   | The Lacework integration name                                                                                    | `string`       | `"TF config"`               |    no    |
 | management_group_id         | The ID of the Management Group                                                                                   | `string`       | `""`                        |    no    |
-| password_length             | The length of the Lacework AD Application password                                                               | `number`       | `30`                        |    no    |
+| password_length             | [DEPRECATED] The length of the Lacework AD Application password                                                               | `number`       | `30`                        |    no    |
 | subscription_ids            | List of subscriptions to grant read access to, by default the module will only use the primary subscription      | `list(string)` | `[]`                        |    no    |
 | tenant_id                   | A Tenant ID different from the default defined inside the provider                                               | `string`       | `""`                        |    no    |
-| use_existing_ad_application | Set this to true to use an existing Active Directory Application                                                 | `bool`         | `false`                     |    no    |
+| use_existing_ad_application | Set this to true to use an existing Active Directory Application                                                 | `bool`         | `true`                     |    no    |
 | use_management_group        | If set to `true`, the AD Application will be set up to leverage a Management Group                               | `bool`         | `false`                     |    no    |
 | wait_time                   | Amount of time to wait before the Lacework resources are provisioned                                             | `string`       | `"20s"`                     |    no    |
 

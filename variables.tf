@@ -1,13 +1,13 @@
 variable "application_name" {
   type        = string
   default     = "lacework_security_audit"
-  description = "The name of the Azure Active Directory Applicaiton"
+  description = "[DEPRECATED] The name of the Azure Active Directory Applicaiton"
 }
 
 # TODO @afiune do we need this?
 variable "application_identifier_uris" {
   type        = list(string)
-  description = "A list of user-defined URI(s) for the Lacework AD Application"
+  description = "[DEPRECATED] A list of user-defined URI(s) for the Lacework AD Application"
   default     = []
 }
 
@@ -40,7 +40,7 @@ variable "tenant_id" {
 variable "password_length" {
   type        = number
   default     = 30
-  description = "The length of the Lacework AD Application password"
+  description = "[DEPRECATED] The length of the Lacework AD Application password (required when use_existing_ad_application is set to false)"
 }
 
 variable "lacework_integration_name" {
@@ -57,13 +57,13 @@ variable "wait_time" {
 
 variable "use_existing_ad_application" {
   type        = bool
-  default     = false
+  default     = true
   description = "Set this to true to use an existing Active Directory Application"
 }
 variable "service_principal_id" {
   type        = string
   default     = ""
-  description = "The Service Principal id to use. Required when `use_existing_ad_application` is set to `true`"
+  description = "The Service Principal id to use. (required when use_existing_ad_application is set to true)"
 }
 
 variable "application_id" {
