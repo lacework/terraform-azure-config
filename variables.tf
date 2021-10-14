@@ -17,12 +17,6 @@ variable "application_password" {
   description = "The Active Directory Application password to use"
 }
 
-variable "tenant_id" {
-  type        = string
-  default     = ""
-  description = "A Tenant ID different from the default defined inside the provider"
-}
-
 variable "subscription_ids" {
   type        = list(string)
   description = "List of subscriptions to grant read access to, by default the module will only use the primary subscription"
@@ -65,4 +59,10 @@ variable "management_group_id" {
   type        = string
   default     = ""
   description = "The ID of the Management Group"
+}
+
+variable "use_existing_ad_application" {
+  type        = bool
+  default     = false
+  description = "Set this to `true` to use an existing Active Directory Application"
 }

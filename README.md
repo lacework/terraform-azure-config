@@ -23,7 +23,7 @@ It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", t
 | management_group_id         | The ID of the Management Group                                                                                   | `string`       | `""`                        |    no    |
 | password_length             | [DEPRECATED] The length of the Lacework AD Application password                                                               | `number`       | `30`                        |    no    |
 | subscription_ids            | List of subscriptions to grant read access to, by default the module will only use the primary subscription      | `list(string)` | `[]`                        |    no    |
-| tenant_id                   | A Tenant ID different from the default defined inside the provider                                               | `string`       | `""`                        |    no    |
+| tenant_id                   | [DEPRECATED] A Tenant ID different from the default defined inside the provider                                               | `string`       | `""`                        |    no    |
 | use_existing_ad_application | Set this to true to use an existing Active Directory Application                                                 | `bool`         | `false`                     |    no    |
 | use_management_group        | If set to `true`, the AD Application will be set up to leverage a Management Group                               | `bool`         | `false`                     |    no    |
 | wait_time                   | Amount of time to wait before the Lacework resources are provisioned                                             | `string`       | `"20s"`                     |    no    |
