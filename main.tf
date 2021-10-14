@@ -52,7 +52,7 @@ resource "time_sleep" "wait_time" {
 }
 
 #a single LW config integration is fine, as it will detect all subscriptions where the SP has Reader permissions
-resource "lacework_integration_azure_cfg" "default" {
+resource "lacework_integration_azure_cfg" "lacework" {
   name      = var.lacework_integration_name
   tenant_id = local.tenant_id
   credentials {
