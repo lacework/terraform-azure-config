@@ -9,7 +9,6 @@ locals {
   application_id       = var.use_existing_ad_application ? var.application_id : module.az_ad_application.application_id
   application_password = var.use_existing_ad_application ? var.application_password : module.az_ad_application.application_password
   service_principal_id = var.use_existing_ad_application ? var.service_principal_id : module.az_ad_application.service_principal_id
-  tenant_id = var.use_existing_ad_application ? data.azurerm_subscription.primary.tenant_id : module.az_ad_application.tenant_id
 }
 
 
@@ -52,7 +51,7 @@ resource "time_sleep" "wait_time" {
 #a single LW config integration is fine, as it will detect all subscriptions where the SP has Reader permissions
 resource "lacework_integration_azure_cfg" "lacework" {
   name      = var.lacework_integration_name
-  tenant_id = local.tenant_id
+  tenant_id = data.azurerm_subscription.primary.tenant_id 
   credentials {
     client_id     = local.application_id
     client_secret = local.application_password

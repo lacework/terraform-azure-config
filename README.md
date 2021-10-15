@@ -18,7 +18,6 @@ It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", t
 | application_name            | The name of the Azure AD Application (required when use_existing_ad_application is set to true)                  | `string`       | `"lacework_security_audit"` |    no    |
 | application_password        | The Azure AD Application password to use (required when use_existing_ad_application is set to true)              | `string`       | `""`                        |    no    |
 | lacework_integration_name   | The Lacework integration name                                                                                    | `string`       | `"TF config"`               |    no    |
-| location                    | Azure region where the storage account for logging will reside                                                   | `string`       | `"West US 2"`               |    no    |
 | service_principal_id        | The Enterprise App Object ID related to the application_id (required when use_existing_ad_application is true)   | `string`       | `""`                        |    no    |
 | management_group_id         | The Management Group ID to add Reader permissions (required when use_management_group is true)                   | `string`       | `""`                        |    no    |
 | subscription_ids            | List of subscriptions to grant read access to, by default the module will only use the primary subscription      | `list(string)` | `[]`                        |    no    |
