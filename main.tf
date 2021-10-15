@@ -29,7 +29,7 @@ resource "azurerm_role_assignment" "grant_reader_role_to_subscriptions" {
   count = length(local.subscription_ids)
   scope = "/subscriptions/${local.subscription_ids[count.index]}"
 
-  principal_id         = var.service_principal_id
+  principal_id         = local.service_principal_id
   role_definition_name = "Reader"
 }
 
@@ -41,7 +41,7 @@ data "azurerm_management_group" "managementgroup" {
 resource "azurerm_role_assignment" "grant_reader_role_to_managementgroup" {
   count                = var.use_management_group ? 1 : 0
   scope                = data.azurerm_management_group.managementgroup[0].id
-  principal_id         = var.service_principal_id
+  principal_id         = local.service_principal_id
   role_definition_name = "Reader"
 }
 
@@ -56,8 +56,8 @@ resource "lacework_integration_azure_cfg" "lacework" {
   name      = var.lacework_integration_name
   tenant_id = local.tenant_id
   credentials {
-    client_id     = var.application_id
-    client_secret = var.application_password
+    client_id     = local.application_id
+    client_secret = local.application_password
   }
   depends_on = [time_sleep.wait_time]
 }
