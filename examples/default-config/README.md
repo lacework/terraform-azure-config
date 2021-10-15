@@ -13,8 +13,6 @@ terraform {
   }
 }
 
-provider "azuread" {}
-
 provider "azurerm" {
   features {}
 }
@@ -23,7 +21,7 @@ provider "lacework" {}
 
 module "az_config" {
   source  = "lacework/config/azure"
-  version = "~> 0.1"
+  version = "~> 1.0"
 }
 ```
 
