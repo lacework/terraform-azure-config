@@ -17,10 +17,8 @@ module "az_ad_application" {
   source  = "lacework/ad-application/azure"
   version = "~> 1.0"
   create  = var.use_existing_ad_application ? false : true
+  application_name  = var.application_name
 }
-
-#this module must be called after using the "lacework/ad-application/azure" module 1.0 which has unbundled the AzureRM resources
-# and supports MS Graph API to set Directory Reader AD role.
 
 data "azurerm_subscription" "primary" {}
 data "azurerm_subscriptions" "available" {}
