@@ -42,7 +42,7 @@ resource "azurerm_role_assignment" "grant_reader_role_to_managementgroup" {
   role_definition_name = "Reader"
 }
 
-# wait for X seconds for the Azure permissions to propragate
+# wait for X seconds for the Azure permissions to propagate
 resource "time_sleep" "wait_time" {
   create_duration = var.wait_time
   depends_on      = [azurerm_role_assignment.grant_reader_role_to_subscriptions]
