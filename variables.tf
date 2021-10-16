@@ -1,4 +1,3 @@
-
 variable "all_subscriptions" {
   type        = bool
   default     = false

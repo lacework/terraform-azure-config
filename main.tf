@@ -3,7 +3,8 @@ locals {
     // the user wants to grant access to all subscriptions
     [for s in data.azurerm_subscriptions.available.subscriptions : s.subscription_id]
     ) : (
-    // or, if the user wants to grant a list of subscriptions, if none then we default to the primary subscription
+    // or, if the user wants to grant a list of subscriptions,
+    // if none then we default to the primary subscription
     length(var.subscription_ids) > 0 ? var.subscription_ids : [data.azurerm_subscription.primary.subscription_id]
   )
   application_id       = var.use_existing_ad_application ? var.application_id : module.az_ad_application.application_id
@@ -13,10 +14,10 @@ locals {
 
 
 module "az_ad_application" {
-  source  = "lacework/ad-application/azure"
-  version = "~> 1.0"
-  create  = var.use_existing_ad_application ? false : true
-  application_name  = var.application_name
+  source           = "lacework/ad-application/azure"
+  version          = "~> 1.0"
+  create           = var.use_existing_ad_application ? false : true
+  application_name = var.application_name
 }
 
 data "azurerm_subscription" "primary" {}
@@ -48,10 +49,11 @@ resource "time_sleep" "wait_time" {
   depends_on      = [azurerm_role_assignment.grant_reader_role_to_subscriptions]
 }
 
-#a single LW config integration is fine, as it will detect all subscriptions where the SP has Reader permissions
+# A single LW config integration can assess all subscriptions where
+# the service principal has Reader permissions
 resource "lacework_integration_azure_cfg" "lacework" {
   name      = var.lacework_integration_name
-  tenant_id = data.azurerm_subscription.primary.tenant_id 
+  tenant_id = data.azurerm_subscription.primary.tenant_id
   credentials {
     client_id     = local.application_id
     client_secret = local.application_password
