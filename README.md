@@ -31,5 +31,5 @@ It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", t
 | -------------------- | ------------------------------------------------ |
 | application_id       | The Lacework AD Application id                   |
 | application_password | The Lacework AD Application password             |
-| service_principal_id | The Lacework Service Principal id                |
+| service_principal_id | The Lacework Service Principal id                 |
 | subscription_ids     | The list of subscriptions that will send Activity Logs to the storage account |
