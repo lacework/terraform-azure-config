@@ -13,8 +13,6 @@ terraform {
   }
 }
 
-provider "azuread" {}
-
 provider "azurerm" {
   features {}
 }
@@ -23,7 +21,7 @@ provider "lacework" {}
 
 module "az_config" {
   source               = "lacework/config/azure"
-  version              = "~> 0.1"
+  version              = "~> 1.0"
   use_management_group = true
   management_group_id  = "e4ef0585-9741-419d-a121-5886972c85d0"
 }
