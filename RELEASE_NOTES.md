@@ -1,11 +1,11 @@
 # Release Notes
-Another day, another release. These are the release notes for the version `v0.2.2`.
+Another day, another release. These are the release notes for the version `v1.0.0`.
 
 ## Refactor
-* refactor: remove unneeded version pin for azuread (#26) (Marc Garcia)([2ce4d0a](https://github.com/lacework/terraform-azure-config/commit/2ce4d0aee729b9aae924418dd6fbc0745e73eeab))
-* refactor: increase wait timer to 20s (#24) (Marc Garcia)([d69568d](https://github.com/lacework/terraform-azure-config/commit/d69568dc53baa4ef8a1677e56e8684a7259140df))
-## Documentation Updates
-* docs: Add contributing documentation (#23) (Darren)([24ed824](https://github.com/lacework/terraform-azure-config/commit/24ed824f34a18132cf2d6b4a636a8bff2e0c0238))
+* refactor(v1.0): deprecate Admin Consent in favor of Service Principal (#30) (Marc Garcia)([5337a5d](https://github.com/lacework/terraform-azure-config/commit/5337a5da9594e185d904b7a76615b5f6153f12c2))
+* refactor: update examples/ for v1.0 (#31) (Salim Afiune)([49076eb](https://github.com/lacework/terraform-azure-config/commit/49076eb196a7d3043018868eb1e37f13d55b9b7d))
+## Bug Fixes
+* fix: Avoid 400 Error in upgrade scenario (#33) (Marc Garcia)([b942a4d](https://github.com/lacework/terraform-azure-config/commit/b942a4dafd913af0bf62dac86ac930a57d498b94))
 ## Other Changes
-* chore: version bump to v0.2.2-dev (Lacework)([6276638](https://github.com/lacework/terraform-azure-config/commit/6276638293f30204f9e45bd731998c198c7d3800))
-* ci: sign lacework-releng commits (#20) (Salim Afiune)([beb0de9](https://github.com/lacework/terraform-azure-config/commit/beb0de91fef9ca31c85c761b3b245a61eaf03757))
+* style: format *.tf files (#32) (Salim Afiune)([11b0ebf](https://github.com/lacework/terraform-azure-config/commit/11b0ebf34352e907f326ce44ce4fa771421d42ed))
+* ci: version bump to v0.2.3-dev (Lacework)([b9e1dfe](https://github.com/lacework/terraform-azure-config/commit/b9e1dfe3eaf9ad3da17355c08afa3945f9b9cf6f))
