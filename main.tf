@@ -47,6 +47,13 @@ resource "azurerm_role_assignment" "grant_reader_role_to_managementgroup" {
 resource "time_sleep" "wait_time" {
   create_duration = var.wait_time
   depends_on      = [azurerm_role_assignment.grant_reader_role_to_subscriptions]
+  triggers = {
+    # If App ID changes, trigger a wait between lacework_integration_azure_cfg destroys and re-creates, to avoid API errors
+    app_id = local.application_id
+    # If the Integration object changes (like during upgrade to v1.0), trigger a wait between lacework_integration_azure_cfg destroys and re-creates, to avoid API errors
+    integration_name = var.lacework_integration_name
+  }
+
 }
 
 # A single LW config integration can assess all subscriptions where
