@@ -1,4 +1,4 @@
-# v0.2.3
+# v1.0.0
 
 ## Refactor
 * refactor(v1.0): deprecate Admin Consent in favor of Service Principal (#30) (Marc Garcia)([5337a5d](https://github.com/lacework/terraform-azure-config/commit/5337a5da9594e185d904b7a76615b5f6153f12c2))
