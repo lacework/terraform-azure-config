@@ -9,27 +9,61 @@ Terraform module for integrating Azure Subscriptions and Tenants with Lacework f
 
 It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", then talks to Lacework API to configure a Cloud Config Integration
 
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 2.28 |
+| <a name="requirement_lacework"></a> [lacework](#requirement\_lacework) | ~> 0.3 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 2.28 |
+| <a name="provider_lacework"></a> [lacework](#provider\_lacework) | ~> 0.3 |
+| <a name="provider_time"></a> [time](#provider\_time) | n/a |
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_az_ad_application"></a> [az\_ad\_application](#module\_az\_ad\_application) | lacework/ad-application/azure | ~> 1.0 |
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_role_assignment.grant_reader_role_to_managementgroup](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.grant_reader_role_to_subscriptions](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [lacework_integration_azure_cfg.lacework](https://registry.terraform.io/providers/lacework/lacework/latest/docs/resources/integration_azure_cfg) | resource |
+| [time_sleep.wait_time](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
+| [azurerm_management_group.managementgroup](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) | data source |
+| [azurerm_subscription.primary](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
+| [azurerm_subscriptions.available](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscriptions) | data source |
+
 ## Inputs
 
-| Name                        | Description                                                                                                      | Type           | Default                     | Required |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------- | :------: |
-| all_subscriptions           | If set to true, grant read access to ALL subscriptions within the selected Tenant (overrides 'subscription_ids') | `bool`         | `false`                     |    no    |
-| application_id              | The Active Directory Application id to use (required when use_existing_ad_application is set to true)            | `string`       | `""`                        |    no    |
-| application_name            | The name of the Azure AD Application (required when use_existing_ad_application is set to true)                  | `string`       | `"lacework_security_audit"` |    no    |
-| application_password        | The Azure AD Application password to use (required when use_existing_ad_application is set to true)              | `string`       | `""`                        |    no    |
-| lacework_integration_name   | The Lacework integration name                                                                                    | `string`       | `"TF config"`               |    no    |
-| service_principal_id        | The Enterprise App Object ID related to the application_id (required when use_existing_ad_application is true)   | `string`       | `""`                        |    no    |
-| management_group_id         | The Management Group ID to add Reader permissions (required when use_management_group is true)                   | `string`       | `""`                        |    no    |
-| subscription_ids            | List of subscriptions to grant read access to, by default the module will only use the primary subscription      | `list(string)` | `[]`                        |    no    |
-| use_existing_ad_application | Set this to true to use an existing Active Directory Application                                                 | `bool`         | `false`                     |    no    |
-| use_management_group        | If set to `true`, the AD Application will be a Reader on the Management Group level instead of Subscription level| `bool`         | `false`                     |    no    |
-| wait_time                   | Amount of time to wait before the Lacework resources are provisioned                                             | `string`       | `"20s"`                     |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_all_subscriptions"></a> [all\_subscriptions](#input\_all\_subscriptions) | If set to true, grant read access to ALL subscriptions within the selected Tenant (overrides 'subscription\_ids') | `bool` | `false` | no |
+| <a name="input_application_id"></a> [application\_id](#input\_application\_id) | The Active Directory Application id to use (required when use\_existing\_ad\_application is set to true) | `string` | `""` | no |
+| <a name="input_application_name"></a> [application\_name](#input\_application\_name) | The name of the Azure Active Directory Application (required when use\_existing\_ad\_application is set to true) | `string` | `"lacework_security_audit"` | no |
+| <a name="input_application_password"></a> [application\_password](#input\_application\_password) | The Active Directory Application password to use (required when use\_existing\_ad\_application is set to true) | `string` | `""` | no |
+| <a name="input_lacework_integration_name"></a> [lacework\_integration\_name](#input\_lacework\_integration\_name) | The Lacework integration name | `string` | `"TF config"` | no |
+| <a name="input_management_group_id"></a> [management\_group\_id](#input\_management\_group\_id) | The Management Group ID to add Reader permissions (required when use\_management\_group is true) | `string` | `""` | no |
+| <a name="input_service_principal_id"></a> [service\_principal\_id](#input\_service\_principal\_id) | The Enterprise App Object ID related to the application\_id (required when use\_existing\_ad\_application is true) | `string` | `""` | no |
+| <a name="input_subscription_ids"></a> [subscription\_ids](#input\_subscription\_ids) | List of subscriptions to grant read access to, by default the module will only use the primary subscription | `list(string)` | `[]` | no |
+| <a name="input_use_existing_ad_application"></a> [use\_existing\_ad\_application](#input\_use\_existing\_ad\_application) | Set this to `true` to use an existing Active Directory Application | `bool` | `false` | no |
+| <a name="input_use_management_group"></a> [use\_management\_group](#input\_use\_management\_group) | If set to `true`, the AD Application will be a Reader on the Management Group level instead of Subscription level | `bool` | `false` | no |
+| <a name="input_wait_time"></a> [wait\_time](#input\_wait\_time) | Amount of time to wait before the Lacework resources are provisioned | `string` | `"20s"` | no |
 
 ## Outputs
 
-| Name                 | Description                                      |
-| -------------------- | ------------------------------------------------ |
-| application_id       | The Lacework AD Application id                   |
-| application_password | The Lacework AD Application password             |
-| service_principal_id | The Lacework Service Principal id                 |
-| subscription_ids     | The list of subscriptions that will send Activity Logs to the storage account |
+| Name | Description |
+|------|-------------|
+| <a name="output_application_id"></a> [application\_id](#output\_application\_id) | The Lacework AD Application id |
+| <a name="output_application_password"></a> [application\_password](#output\_application\_password) | The Lacework AD Application password |
+| <a name="output_service_principal_id"></a> [service\_principal\_id](#output\_service\_principal\_id) | The Lacework Service Principal id |
+| <a name="output_subscription_ids"></a> [subscription\_ids](#output\_subscription\_ids) | The list of subscriptions that will be shown in Lacework Cloud Config integration |
