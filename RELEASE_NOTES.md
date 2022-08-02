@@ -1,11 +1,10 @@
 # Release Notes
-Another day, another release. These are the release notes for the version `v1.0.0`.
+Another day, another release. These are the release notes for the version `v1.1.0`.
 
-## Refactor
-* refactor(v1.0): deprecate Admin Consent in favor of Service Principal (#30) (Marc Garcia)([5337a5d](https://github.com/lacework/terraform-azure-config/commit/5337a5da9594e185d904b7a76615b5f6153f12c2))
-* refactor: update examples/ for v1.0 (#31) (Salim Afiune)([49076eb](https://github.com/lacework/terraform-azure-config/commit/49076eb196a7d3043018868eb1e37f13d55b9b7d))
+## Features
+* feat: deprecate support for Terraform 0.12 and 0.13 (#37) (Darren)([b19d643](https://github.com/lacework/terraform-azure-config/commit/b19d6434477554b21f892197d6c69bd2ac60fa23))
 ## Bug Fixes
-* fix: Avoid 400 Error in upgrade scenario (#33) (Marc Garcia)([b942a4d](https://github.com/lacework/terraform-azure-config/commit/b942a4dafd913af0bf62dac86ac930a57d498b94))
+* fix: only pull enabled subscriptions (#35) (Andre Elizondo)([2a6cde1](https://github.com/lacework/terraform-azure-config/commit/2a6cde1c8bcea1a90f7344f65211d96fab45e4f6))
 ## Other Changes
-* style: format *.tf files (#32) (Salim Afiune)([11b0ebf](https://github.com/lacework/terraform-azure-config/commit/11b0ebf34352e907f326ce44ce4fa771421d42ed))
-* ci: version bump to v0.2.3-dev (Lacework)([b9e1dfe](https://github.com/lacework/terraform-azure-config/commit/b9e1dfe3eaf9ad3da17355c08afa3945f9b9cf6f))
+* chore: update pull-request-template.md (#36) (Darren)([188ba70](https://github.com/lacework/terraform-azure-config/commit/188ba7037795697a3d7b408c5a83014c1c703c5c))
+* ci: version bump to v1.0.1-dev (Lacework)([20ed214](https://github.com/lacework/terraform-azure-config/commit/20ed21491b6c2a9d76cb871d4324aec787b0de7f))
