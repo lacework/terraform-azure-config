@@ -5,7 +5,7 @@ terraform {
     azurerm = "~> 2.28"
     lacework = {
       source  = "lacework/lacework"
-      version = "~> 0.3"
+      version = "~> 1.0"
     }
   }
 }
