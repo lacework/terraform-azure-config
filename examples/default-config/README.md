@@ -21,7 +21,7 @@ provider "lacework" {}
 
 module "az_config" {
   source  = "lacework/config/azure"
-  version = "~> 1.0"
+  version = "~> 2.0"
 }
 ```
 
