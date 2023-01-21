@@ -14,14 +14,14 @@ It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", t
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 2.28 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.0 |
 | <a name="requirement_lacework"></a> [lacework](#requirement\_lacework) | ~> 1.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 2.28 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3.0 |
 | <a name="provider_lacework"></a> [lacework](#provider\_lacework) | ~> 1.0 |
 | <a name="provider_time"></a> [time](#provider\_time) | n/a |
 
@@ -56,6 +56,7 @@ It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", t
 | <a name="input_lacework_integration_name"></a> [lacework\_integration\_name](#input\_lacework\_integration\_name) | The Lacework integration name | `string` | `"TF config"` | no |
 | <a name="input_management_group_id"></a> [management\_group\_id](#input\_management\_group\_id) | The Management Group ID to add Reader permissions (required when use\_management\_group is true) | `string` | `""` | no |
 | <a name="input_service_principal_id"></a> [service\_principal\_id](#input\_service\_principal\_id) | The Enterprise App Object ID related to the application\_id (required when use\_existing\_ad\_application is true) | `string` | `""` | no |
+| <a name="input_subscription_exclusions"></a> [subscription\_exclusions](#input\_subscription\_exclusions) | List of subscriptions to exclude when using the `all_subscriptions` option. | `list(string)` | `[]` | no |
 | <a name="input_subscription_ids"></a> [subscription\_ids](#input\_subscription\_ids) | List of subscriptions to grant read access to, by default the module will only use the primary subscription | `list(string)` | `[]` | no |
 | <a name="input_use_existing_ad_application"></a> [use\_existing\_ad\_application](#input\_use\_existing\_ad\_application) | Set this to `true` to use an existing Active Directory Application | `bool` | `false` | no |
 | <a name="input_use_management_group"></a> [use\_management\_group](#input\_use\_management\_group) | If set to `true`, the AD Application will be a Reader on the Management Group level instead of Subscription level | `bool` | `false` | no |

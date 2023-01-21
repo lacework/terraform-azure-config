@@ -33,6 +33,11 @@ variable "service_principal_id" {
   default     = ""
   description = "The Enterprise App Object ID related to the application_id (required when use_existing_ad_application is true)"
 }
+variable "subscription_exclusions" {
+  type        = list(string)
+  description = "List of subscriptions to exclude when using the `all_subscriptions` option."
+  default     = []
+}
 variable "subscription_ids" {
   type        = list(string)
   description = "List of subscriptions to grant read access to, by default the module will only use the primary subscription"
