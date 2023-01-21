@@ -35,6 +35,8 @@ It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", t
 
 | Name | Type |
 |------|------|
+| [azurerm_role_assignment.grant_key_vault_reader_role_to_managementgroup](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.grant_key_vault_reader_role_to_subscriptions](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.grant_reader_role_to_managementgroup](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.grant_reader_role_to_subscriptions](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [lacework_integration_azure_cfg.lacework](https://registry.terraform.io/providers/lacework/lacework/latest/docs/resources/integration_azure_cfg) | resource |

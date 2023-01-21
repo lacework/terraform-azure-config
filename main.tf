@@ -25,10 +25,18 @@ data "azurerm_subscriptions" "available" {}
 
 resource "azurerm_role_assignment" "grant_reader_role_to_subscriptions" {
   count = length(local.subscription_ids)
-  scope = "/subscriptions/${local.subscription_ids[count.index]}"
 
+  scope                = "/subscriptions/${local.subscription_ids[count.index]}"
   principal_id         = local.service_principal_id
   role_definition_name = "Reader"
+}
+
+resource "azurerm_role_assignment" "grant_key_vault_reader_role_to_subscriptions" {
+  count = length(local.subscription_ids)
+
+  scope                = "/subscriptions/${local.subscription_ids[count.index]}"
+  principal_id         = local.service_principal_id
+  role_definition_name = "Key Vault Reader"
 }
 
 data "azurerm_management_group" "managementgroup" {
@@ -37,10 +45,19 @@ data "azurerm_management_group" "managementgroup" {
 }
 
 resource "azurerm_role_assignment" "grant_reader_role_to_managementgroup" {
-  count                = var.use_management_group ? 1 : 0
+  count = var.use_management_group ? 1 : 0
+
   scope                = data.azurerm_management_group.managementgroup[0].id
   principal_id         = local.service_principal_id
   role_definition_name = "Reader"
+}
+
+resource "azurerm_role_assignment" "grant_key_vault_reader_role_to_managementgroup" {
+  count = var.use_management_group ? 1 : 0
+
+  scope                = data.azurerm_management_group.managementgroup[0].id
+  principal_id         = local.service_principal_id
+  role_definition_name = "Key Vault Reader"
 }
 
 # wait for X seconds for the Azure permissions to propagate
