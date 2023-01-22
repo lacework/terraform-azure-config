@@ -1,8 +1,9 @@
 # Release Notes
-Another day, another release. These are the release notes for the version `v1.1.1`.
+Another day, another release. These are the release notes for the version `v2.1.0`.
 
-## Documentation Updates
-* docs: update Lacework provider version in readme (#41) (Darren)([fcf9d1c](https://github.com/lacework/terraform-azure-config/commit/fcf9d1ce0623c8145678f829cd0bdf72db78196d))
+## Features
+* feat: allow subscription exclusions when `all_subscriptions` is used (Alan Nix)([348786b](https://github.com/lacework/terraform-azure-config/commit/348786ba4ea130f7896e5d10fb2b77c34dcba844))
+* feat: added KeyVaultReader role to the Lacework service principal (#43) (Alan Nix)([969fe20](https://github.com/lacework/terraform-azure-config/commit/969fe203730d177da7261214503150b1a7d47c5a))
 ## Other Changes
-* chore: update Lacework provider version to v1 (#40) (Darren)([4472b5a](https://github.com/lacework/terraform-azure-config/commit/4472b5a3655165a29edacff0ff642e8040aa0308))
-* ci: version bump to v1.1.1-dev (Lacework)([6820d9f](https://github.com/lacework/terraform-azure-config/commit/6820d9f38820a793caab9dab69d867c1212790d6))
+* chore: updating `azurerm` to v3 (Alan Nix)([5883945](https://github.com/lacework/terraform-azure-config/commit/58839456398779f5cc3ae3add79539561c68e840))
+* ci: version bump to v1.1.2-dev (Lacework)([7238974](https://github.com/lacework/terraform-azure-config/commit/72389740f3aa0188256c3ae62aa7d4d5ce32a60a))
