@@ -1,4 +1,4 @@
-# v2.1.0
+# v2.0.0
 
 ## Features
 * feat: allow subscription exclusions when `all_subscriptions` is used (Alan Nix)([348786b](https://github.com/lacework/terraform-azure-config/commit/348786ba4ea130f7896e5d10fb2b77c34dcba844))
