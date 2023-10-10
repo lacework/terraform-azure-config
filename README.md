@@ -8,7 +8,7 @@
 Terraform module for integrating Azure Subscriptions and Tenants with Lacework for cloud resource configuration assessment.
 
 It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", then talks to Lacework API to configure a Cloud Config Integration
-
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -70,3 +70,4 @@ It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", t
 | <a name="output_application_password"></a> [application\_password](#output\_application\_password) | The Lacework AD Application password |
 | <a name="output_service_principal_id"></a> [service\_principal\_id](#output\_service\_principal\_id) | The Lacework Service Principal id |
 | <a name="output_subscription_ids"></a> [subscription\_ids](#output\_subscription\_ids) | The list of subscriptions that will be shown in Lacework Cloud Config integration |
+<!-- END_TF_DOCS -->
