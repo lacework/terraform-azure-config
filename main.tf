@@ -11,7 +11,7 @@ locals {
   application_password = var.use_existing_ad_application ? var.application_password : module.az_ad_application.application_password
   service_principal_id = var.use_existing_ad_application ? var.service_principal_id : module.az_ad_application.service_principal_id
   version_file   = "${abspath(path.module)}/VERSION"
-  module_name    = basename(abspath(path.module))
+  module_name    = "terraform-azure-config"
   module_version = fileexists(local.version_file) ? file(local.version_file) : ""
 }
 
