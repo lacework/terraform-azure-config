@@ -1,9 +1,10 @@
 # Release Notes
-Another day, another release. These are the release notes for the version `v2.0.0`.
+Another day, another release. These are the release notes for the version `v2.0.1`.
 
-## Features
-* feat: allow subscription exclusions when `all_subscriptions` is used (Alan Nix)([348786b](https://github.com/lacework/terraform-azure-config/commit/348786ba4ea130f7896e5d10fb2b77c34dcba844))
-* feat: added KeyVaultReader role to the Lacework service principal (#43) (Alan Nix)([969fe20](https://github.com/lacework/terraform-azure-config/commit/969fe203730d177da7261214503150b1a7d47c5a))
+## Documentation Updates
+* docs(readme): add terraform docs automation (#52) (Timothy MacDonald)([e454245](https://github.com/lacework/terraform-azure-config/commit/e4542457da92f23f6d03755afe748156b981fa0f))
 ## Other Changes
-* chore: updating `azurerm` to v3 (Alan Nix)([5883945](https://github.com/lacework/terraform-azure-config/commit/58839456398779f5cc3ae3add79539561c68e840))
-* ci: version bump to v1.1.2-dev (Lacework)([7238974](https://github.com/lacework/terraform-azure-config/commit/72389740f3aa0188256c3ae62aa7d4d5ce32a60a))
+* chore: set local var module name (#56) (Darren)([525154d](https://github.com/lacework/terraform-azure-config/commit/525154dd7e93b382ed16026359e1a3a2635590d8))
+* chore: add lacework_metric_module datasource (#55) (Darren)([687b443](https://github.com/lacework/terraform-azure-config/commit/687b443cbcbb1e264685e57b88283ade03643e1d))
+* ci: tfsec (jon-stewart)([1cd2eba](https://github.com/lacework/terraform-azure-config/commit/1cd2eba2c3d6730fc07d52266e4e4b91dc52dc16))
+* ci: version bump to v2.0.1-dev (Lacework)([29992d6](https://github.com/lacework/terraform-azure-config/commit/29992d6b583b86af149bb8ccef5b576feef31b21))
