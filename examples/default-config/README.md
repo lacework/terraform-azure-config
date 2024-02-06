@@ -25,4 +25,4 @@ module "az_config" {
 }
 ```
 
-For detailed information on integrating Lacework with Azure see [Azure Compliance & Activity Log Integrations - Terraform From Any Supported Host](https://support.lacework.com/hc/en-us/articles/360058966313-Azure-Compliance-Activity-Log-Integrations-Terraform-From-Any-Supported-Host)
+For detailed information on integrating Lacework with Azure see [Azure Compliance & Activity Log Integrations - Terraform From Any Supported Host](https://docs.lacework.net/onboarding/azure-compliance-and-activity-log-integrations-terraform-from-any-supported-host)
