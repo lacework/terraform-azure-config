@@ -69,6 +69,7 @@ It adds a Service Principal as a subscription "Reader" and "Key Vault Reader", t
 |------|-------------|
 | <a name="output_application_id"></a> [application\_id](#output\_application\_id) | The Lacework AD Application id |
 | <a name="output_application_password"></a> [application\_password](#output\_application\_password) | The Lacework AD Application password |
+| <a name="output_lacework_integration_guid"></a> [lacework\_integration\_guid](#output\_lacework\_integration\_guid) | GUID of the created Lacework integration |
 | <a name="output_service_principal_id"></a> [service\_principal\_id](#output\_service\_principal\_id) | The Lacework Service Principal id |
 | <a name="output_subscription_ids"></a> [subscription\_ids](#output\_subscription\_ids) | The list of subscriptions that will be shown in Lacework Cloud Config integration |
 <!-- END_TF_DOCS -->
