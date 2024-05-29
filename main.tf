@@ -92,3 +92,8 @@ data "lacework_metric_module" "lwmetrics" {
   name    = local.module_name
   version = local.module_version
 }
+
+output "lacework_integration_guid" {
+  description = "GUID of the created Lacework integration"
+  value = lacework_integration_azure_cfg.lacework.intg_guid
+}
