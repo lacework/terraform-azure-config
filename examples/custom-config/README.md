@@ -21,7 +21,7 @@ provider "lacework" {}
 
 module "az_config" {
   source                    = "lacework/config/azure"
-  version                   = "~> 2.0"
+  version                   = "~> 3.0"
 
   application_name          = "lacework_custom_ad_application_name"
   subscription_ids          = ["subscription-id-1", "subscription-id-2", "subscription-id-3"]

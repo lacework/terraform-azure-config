@@ -21,7 +21,7 @@ provider "lacework" {}
 
 module "az_config" {
   source               = "lacework/config/azure"
-  version              = "~> 2.0"
+  version              = "~> 3.0"
 
   use_management_group = true
   management_group_id  = "e4ef0585-9741-419d-a121-5886972c85d0"
