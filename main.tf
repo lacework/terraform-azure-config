@@ -10,9 +10,9 @@ locals {
   application_id       = var.use_existing_ad_application ? var.application_id : module.az_ad_application.application_id
   application_password = var.use_existing_ad_application ? var.application_password : module.az_ad_application.application_password
   service_principal_id = var.use_existing_ad_application ? var.service_principal_id : module.az_ad_application.service_principal_id
-  version_file   = "${abspath(path.module)}/VERSION"
-  module_name    = "terraform-azure-config"
-  module_version = fileexists(local.version_file) ? file(local.version_file) : ""
+  version_file         = "${abspath(path.module)}/VERSION"
+  module_name          = "terraform-azure-config"
+  module_version       = fileexists(local.version_file) ? file(local.version_file) : ""
 }
 
 
@@ -95,5 +95,5 @@ data "lacework_metric_module" "lwmetrics" {
 
 output "lacework_integration_guid" {
   description = "GUID of the created Lacework integration"
-  value = lacework_integration_azure_cfg.lacework.intg_guid
+  value       = lacework_integration_azure_cfg.lacework.intg_guid
 }

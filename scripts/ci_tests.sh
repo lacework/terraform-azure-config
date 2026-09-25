@@ -40,8 +40,7 @@ lint_tests() {
 }
 
 sec_tests() {
-  # TODO: replace with `lacework iac tf-scan tfsec -m MEDIUM`
-  tfsec -m MEDIUM
+  trivy config --exit-code 1 --severity MEDIUM,HIGH,CRITICAL .
 }
 
 main() {
