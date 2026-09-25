@@ -40,7 +40,7 @@ lint_tests() {
 }
 
 sec_tests() {
-  trivy config --severity MEDIUM,HIGH,CRITICAL .
+  trivy config --exit-code 1 --severity MEDIUM,HIGH,CRITICAL .
 }
 
 main() {
